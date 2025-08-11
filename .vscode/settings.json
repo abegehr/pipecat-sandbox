@@ -1,5 +1,11 @@
 {
-  "cSpell.words": ["abegehr", "cloudflare", "pipecat"],
+  "cSpell.words": [
+    "abegehr",
+    "cloudflare",
+    "geist",
+    "isbot",
+    "pipecat"
+  ],
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit",
     "source.fixAll.biome": "explicit"

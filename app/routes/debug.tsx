@@ -1,10 +1,4 @@
 import { ConsoleTemplate, ThemeProvider } from "@pipecat-ai/voice-ui-kit";
-import {
-  createPipecatClient,
-  EXAMPLE_BOT_CONFIG,
-  getBotConfigFromEnv,
-} from "../lib/pipecat-bot";
-import type { Route } from "./+types/debug";
 
 // Import recommended fonts
 import "@fontsource-variable/geist";
@@ -13,7 +7,7 @@ import "@fontsource-variable/geist-mono";
 // Import voice-ui-kit styles
 import "@pipecat-ai/voice-ui-kit/styles.css";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "Pipecat Debug Console" },
     {
@@ -23,35 +17,25 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+// Example bot configuration
+export interface BotConfig {
+  roomUrl: string;
+  token: string;
+  botName?: string;
+}
+
 export default function DebugConsole() {
+  // TODO: get from query params
+  const config: BotConfig = {
+    roomUrl: "https://your-daily-room-url.daily.co/your-room",
+    token: "your-daily-token",
+    botName: "Debug Bot",
+  };
+
   return (
     <ThemeProvider>
       <div className="w-full h-dvh bg-background">
-        <ConsoleTemplate
-          onConnect={async () => {
-            console.log("Connecting to Pipecat bot...");
-
-            // Try to get config from environment variables first
-            let config = getBotConfigFromEnv();
-
-            // Fall back to example config if no env vars
-            if (!config) {
-              console.warn(
-                "Using example config. Set VITE_DAILY_ROOM_URL and VITE_DAILY_TOKEN for production use.",
-              );
-              config = EXAMPLE_BOT_CONFIG;
-            }
-
-            try {
-              const client = await createPipecatClient(config);
-              console.log("Pipecat client created successfully");
-              return client;
-            } catch (error) {
-              console.error("Failed to create Pipecat client:", error);
-              throw error;
-            }
-          }}
-        />
+        <ConsoleTemplate connectParams={config} />
       </div>
     </ThemeProvider>
   );

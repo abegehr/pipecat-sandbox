@@ -11,7 +11,8 @@
       "**/*.ts",
       "**/*.tsx",
       "!**/worker-configuration.d.ts",
-      "!**/.wrangler/**"
+      "!**/.wrangler/**",
+      "!**/.react-router/**"
     ]
   },
   "formatter": {
