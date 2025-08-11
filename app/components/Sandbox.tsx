@@ -15,20 +15,14 @@ import "@pipecat-ai/voice-ui-kit/styles.css";
 export const clientOnly = true;
 
 interface SandboxProps {
-  connectionUrl: string;
+  endpoint: string;
 }
 
-export default function Sandbox({ connectionUrl }: SandboxProps) {
+export default function Sandbox({ endpoint }: SandboxProps) {
   return (
     <ThemeProvider>
       <FullScreenContainer>
-        <ConsoleTemplate
-          transportType="smallwebrtc"
-          connectParams={{
-            connectionUrl,
-          }}
-          noUserVideo={true}
-        />
+        <ConsoleTemplate connectParams={{ endpoint }} noUserVideo={true} />
       </FullScreenContainer>
     </ThemeProvider>
   );

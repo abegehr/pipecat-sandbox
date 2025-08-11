@@ -48,14 +48,14 @@ export default function Home() {
   }
 
   // Build the connection URL with both bot name and API key
-  const connectionUrl = `/api/offer?${new URLSearchParams({
+  const endpoint = `/api/offer?${new URLSearchParams({
     ...(bot && { bot }),
     ...(key && { key }),
   }).toString()}`;
 
   return (
     <Suspense fallback={<div>Loading sandbox...</div>}>
-      <Sandbox connectionUrl={connectionUrl} />
+      <Sandbox endpoint={endpoint} />
     </Suspense>
   );
 }
