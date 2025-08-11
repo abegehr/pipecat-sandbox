@@ -3,5 +3,5 @@
   "name": "pipecat-sandbox",
   "compatibility_date": "2025-04-04",
   "main": "./workers/app.ts",
-  "vars": {},
+  "compatibility_flags": ["nodejs_compat"]
 }

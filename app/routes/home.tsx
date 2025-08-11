@@ -1,4 +1,4 @@
-import { ConsoleTemplate, ThemeProvider } from "@pipecat-ai/voice-ui-kit";
+import { ConsoleTemplate, FullScreenContainer, ThemeProvider } from "@pipecat-ai/voice-ui-kit";
 
 // Import recommended fonts
 import "@fontsource-variable/geist";
@@ -34,9 +34,15 @@ export default function Home() {
 
   return (
     <ThemeProvider>
-      <div className="w-full h-dvh bg-background">
-        <ConsoleTemplate connectParams={config} />
-      </div>
+      <FullScreenContainer>
+        <ConsoleTemplate
+          transportType="smallwebrtc"
+          connectParams={{
+            connectionUrl: "/api/offer",
+          }}
+          noUserVideo={true}
+        />
+      </FullScreenContainer>
     </ThemeProvider>
   );
 }
