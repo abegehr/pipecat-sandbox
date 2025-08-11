@@ -19,6 +19,7 @@
     "@pipecat-ai/client-js": "^1.2.0",
     "@pipecat-ai/client-react": "^1.0.1",
     "@pipecat-ai/daily-transport": "^1.2.0",
+    "@pipecat-ai/small-webrtc-transport": "^1.2.0",
     "@pipecat-ai/voice-ui-kit": "^0.1.1",
     "isbot": "^5.1.29",
     "react": "^19.1.1",

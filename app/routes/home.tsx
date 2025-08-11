@@ -1,4 +1,8 @@
-import { ConsoleTemplate, FullScreenContainer, ThemeProvider } from "@pipecat-ai/voice-ui-kit";
+import {
+  ConsoleTemplate,
+  FullScreenContainer,
+  ThemeProvider,
+} from "@pipecat-ai/voice-ui-kit";
 
 // Import recommended fonts
 import "@fontsource-variable/geist";
