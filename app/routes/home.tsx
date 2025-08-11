@@ -1,16 +1,8 @@
-import {
-  ConsoleTemplate,
-  FullScreenContainer,
-  ThemeProvider,
-} from "@pipecat-ai/voice-ui-kit";
 import { useSearchParams } from "react-router";
+import Sandbox from "../components/Sandbox";
 
-// Import recommended fonts
-import "@fontsource-variable/geist";
-import "@fontsource-variable/geist-mono";
-
-// Import voice-ui-kit styles
-import "@pipecat-ai/voice-ui-kit/styles.css";
+// Make this route client-side only
+export const clientOnly = true;
 
 export function meta() {
   return [
@@ -33,17 +25,5 @@ export default function Home() {
     ...(key && { key }),
   }).toString()}`;
 
-  return (
-    <ThemeProvider>
-      <FullScreenContainer>
-        <ConsoleTemplate
-          transportType="smallwebrtc"
-          connectParams={{
-            connectionUrl,
-          }}
-          noUserVideo={true}
-        />
-      </FullScreenContainer>
-    </ThemeProvider>
-  );
+  return <Sandbox connectionUrl={connectionUrl} />;
 }
