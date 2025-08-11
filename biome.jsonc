@@ -3,7 +3,7 @@
   "vcs": {
     "enabled": false,
     "clientKind": "git",
-    "useIgnoreFile": false,
+    "useIgnoreFile": false
   },
   "files": {
     "ignoreUnknown": false,
@@ -11,13 +11,13 @@
       "**/*.ts",
       "**/*.tsx",
       "!**/worker-configuration.d.ts",
-      "!**/.wrangler/**",
-    ],
+      "!**/.wrangler/**"
+    ]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2,
+    "indentWidth": 2
   },
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
@@ -34,13 +34,13 @@
         "noUnusedTemplateLiteral": "error",
         "useNumberNamespace": "error",
         "noInferrableTypes": "error",
-        "noUselessElse": "error",
-      },
-    },
+        "noUselessElse": "error"
+      }
+    }
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double",
-    },
-  },
+      "quoteStyle": "double"
+    }
+  }
 }

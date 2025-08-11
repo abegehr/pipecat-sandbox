@@ -1,6 +1,10 @@
-import type { Route } from "./+types/debug";
 import { ConsoleTemplate, ThemeProvider } from "@pipecat-ai/voice-ui-kit";
-import { createPipecatClient, getBotConfigFromEnv, EXAMPLE_BOT_CONFIG } from "../lib/pipecat-bot";
+import {
+  createPipecatClient,
+  EXAMPLE_BOT_CONFIG,
+  getBotConfigFromEnv,
+} from "../lib/pipecat-bot";
+import type { Route } from "./+types/debug";
 
 // Import recommended fonts
 import "@fontsource-variable/geist";
@@ -12,7 +16,10 @@ import "@pipecat-ai/voice-ui-kit/styles.css";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Pipecat Debug Console" },
-    { name: "description", content: "Debug console for Pipecat AI applications" },
+    {
+      name: "description",
+      content: "Debug console for Pipecat AI applications",
+    },
   ];
 }
 
@@ -23,16 +30,18 @@ export default function DebugConsole() {
         <ConsoleTemplate
           onConnect={async () => {
             console.log("Connecting to Pipecat bot...");
-            
+
             // Try to get config from environment variables first
             let config = getBotConfigFromEnv();
-            
+
             // Fall back to example config if no env vars
             if (!config) {
-              console.warn("Using example config. Set VITE_DAILY_ROOM_URL and VITE_DAILY_TOKEN for production use.");
+              console.warn(
+                "Using example config. Set VITE_DAILY_ROOM_URL and VITE_DAILY_TOKEN for production use.",
+              );
               config = EXAMPLE_BOT_CONFIG;
             }
-            
+
             try {
               const client = await createPipecatClient(config);
               console.log("Pipecat client created successfully");

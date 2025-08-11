@@ -1,6 +1,6 @@
+import { Link } from "react-router";
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
-import { Link } from "react-router";
 
 export function Welcome({ message }: { message: string }) {
   return (

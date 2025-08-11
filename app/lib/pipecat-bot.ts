@@ -9,7 +9,9 @@ export interface BotConfig {
 }
 
 // Create a Pipecat client with Daily transport
-export async function createPipecatClient(config: BotConfig): Promise<PipecatClient> {
+export async function createPipecatClient(
+  config: BotConfig,
+): Promise<PipecatClient> {
   const transport = new DailyTransport({
     roomUrl: config.roomUrl,
     token: config.token,
@@ -33,7 +35,7 @@ export const EXAMPLE_BOT_CONFIG: BotConfig = {
 export function getBotConfigFromEnv(): BotConfig | null {
   const roomUrl = import.meta.env.VITE_DAILY_ROOM_URL;
   const token = import.meta.env.VITE_DAILY_TOKEN;
-  
+
   if (!roomUrl || !token) {
     console.warn("Daily room URL and token not found in environment variables");
     return null;
