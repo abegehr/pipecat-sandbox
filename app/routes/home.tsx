@@ -3,6 +3,7 @@ import {
   FullScreenContainer,
   ThemeProvider,
 } from "@pipecat-ai/voice-ui-kit";
+import { useSearchParams } from "react-router";
 
 // Import recommended fonts
 import "@fontsource-variable/geist";
@@ -21,20 +22,16 @@ export function meta() {
   ];
 }
 
-// Example bot configuration
-export interface BotConfig {
-  roomUrl: string;
-  token: string;
-  botName?: string;
-}
-
 export default function Home() {
-  // TODO: get from query params
-  const config: BotConfig = {
-    roomUrl: "https://your-daily-room-url.daily.co/your-room",
-    token: "your-daily-token",
-    botName: "Debug Bot",
-  };
+  const [searchParams] = useSearchParams();
+  const bot = searchParams.get("bot");
+  const key = searchParams.get("key");
+
+  // Build the connection URL with both bot name and API key
+  const connectionUrl = `/api/offer?${new URLSearchParams({
+    ...(bot && { bot }),
+    ...(key && { key }),
+  }).toString()}`;
 
   return (
     <ThemeProvider>
@@ -42,7 +39,7 @@ export default function Home() {
         <ConsoleTemplate
           transportType="smallwebrtc"
           connectParams={{
-            connectionUrl: "/api/offer",
+            connectionUrl,
           }}
           noUserVideo={true}
         />

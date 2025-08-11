@@ -1,6 +1,6 @@
-# Welcome to React Router!
+# Pipecat Sandbox
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A modern, production-ready template for building full-stack React applications using React Router and Pipecat AI voice integration.
 
 ## Features
 
@@ -10,7 +10,9 @@ A modern, production-ready template for building full-stack React applications u
 - 🔄 Data loading and mutations
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
+- 🎤 Pipecat AI voice integration
 - 📖 [React Router docs](https://reactrouter.com/)
+- 📖 [Pipecat docs](https://pipecat.ai/)
 
 ## Getting Started
 
@@ -20,7 +22,25 @@ Install the dependencies:
 
 ```bash
 npm install
+# or
+pnpm install
 ```
+
+### Usage
+
+To use the application with a specific bot, add the bot name and optionally the API key as URL parameters:
+
+```
+http://localhost:5173/?bot=couples&key=your_pipecat_api_key_here
+```
+
+Or without an API key (if the bot doesn't require authentication):
+
+```
+http://localhost:5173/?bot=couples
+```
+
+The bot name will be used to construct the full Pipecat API URL: `https://api.pipecat.daily.co/v1/public/{bot-name}/start`
 
 ### Development
 
