@@ -5,11 +5,11 @@
   "scripts": {
     "build": "react-router build",
     "cf-typegen": "wrangler types",
-    "deploy": "npm run build && wrangler deploy",
+    "deploy": "pnpm run build && wrangler deploy",
     "dev": "react-router dev",
-    "postinstall": "npm run cf-typegen",
-    "preview": "npm run build && vite preview",
-    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
+    "postinstall": "pnpm run cf-typegen",
+    "preview": "pnpm run build && vite preview",
+    "typecheck": "pnpm run cf-typegen && react-router typegen && tsc -b",
     "lint": "biome lint --write",
     "format": "biome format --write"
   },
