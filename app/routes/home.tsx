@@ -1,5 +1,8 @@
+import { lazy, Suspense } from "react";
 import { useSearchParams } from "react-router";
-import Sandbox from "../components/Sandbox";
+
+// Dynamically import Sandbox to ensure client-side only rendering
+const Sandbox = lazy(() => import("../components/Sandbox"));
 
 // Make this route client-side only
 export const clientOnly = true;
@@ -25,5 +28,9 @@ export default function Home() {
     ...(key && { key }),
   }).toString()}`;
 
-  return <Sandbox connectionUrl={connectionUrl} />;
+  return (
+    <Suspense fallback={<div>Loading sandbox...</div>}>
+      <Sandbox connectionUrl={connectionUrl} />
+    </Suspense>
+  );
 }
