@@ -1,0 +1,15 @@
+{
+  "cSpell.words": ["abegehr", "cloudflare", "pipecat"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit"
+  },
+  "search.exclude": {
+    ".cursor": true,
+    "**/worker-configuration.d.ts": true
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}
