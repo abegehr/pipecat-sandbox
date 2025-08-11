@@ -22,7 +22,11 @@ export default function Sandbox({ endpoint }: SandboxProps) {
   return (
     <ThemeProvider>
       <FullScreenContainer>
-        <ConsoleTemplate connectParams={{ endpoint }} noUserVideo={true} />
+        <ConsoleTemplate
+          title="Pipecat Sandbox"
+          connectParams={{ endpoint }}
+          noUserVideo={true}
+        />
       </FullScreenContainer>
     </ThemeProvider>
   );
